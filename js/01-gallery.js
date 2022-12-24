@@ -1,30 +1,10 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
+const gallery = document.querySelector('.gallery');
+gallery.insertAdjacentHTML('beforeend', createElementsGallery(galleryItems));
 
-console.log(galleryItems);
-
-const listGallery = document.querySelector('.gallery');
-listGallery.insertAdjacentHTML('beforeend', createElementsGallery(galleryItems));
-
-function createElementsGallery(arg) {
-    return arg.map(({ preview, original, description }) => {
-        return `
-        <div class="gallery__item">
-        <a class="gallery__link" href="${original}">
-        <img
-        class="gallery__image"
-        src="${preview}"
-        data-source="${original}"
-        alt="${description}"
-        />
-        </a>
-        </div>`
-    })
-        .join('');
-}
-
-listGallery.addEventListener('click', openLightBox)
+gallery.addEventListener('click', openLightBox)
 
 function openLightBox(evt) {
     evt.preventDefault();
@@ -52,4 +32,16 @@ function openLightBox(evt) {
             instance.close();
         }
     }
+}
+
+function createElementsGallery(arg) {
+    return arg.map(({ preview, original, description }) => {
+        return `
+        <div class="gallery__item">
+        <a class="gallery__link" href="${original}">
+        <img class="gallery__image" src="${preview}" data-source="${original}" alt="${description}"/>
+        </a>
+        </div>`
+    })
+        .join('');
 }

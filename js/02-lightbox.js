@@ -1,10 +1,8 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
-
-const listGallery = document.querySelector('.gallery');
-listGallery.insertAdjacentHTML('beforeend', createElementsGallery(galleryItems));
+const gallery = document.querySelector('.gallery');
+gallery.insertAdjacentHTML('beforeend', createElementsGallery(galleryItems));
 
 const option = {
     enableKeyboard: true,
