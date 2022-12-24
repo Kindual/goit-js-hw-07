@@ -8,6 +8,7 @@ const option = {
     enableKeyboard: true,
     captionDelay: 250,
     captionsData: 'alt',
+    captionPosition: 'bottom',
 }
 
 const lightbox = new SimpleLightbox('.gallery__item', option);
@@ -15,10 +16,12 @@ const lightbox = new SimpleLightbox('.gallery__item', option);
 function createElementsGallery(arg) {
     return arg.map(({ preview, original, description }) => {
         return `
-        <a class="gallery__item" href="${original}">
-        <img class="gallery__image" src="${preview}" alt="${description}" />
+        <li>
+            <a class="gallery__item" href="${original}">
+                <img class="gallery__image" src="${preview}" alt="${description}" />
             </a>
-            `
+        </li>
+                `
     })
         .join('');
 }
